@@ -2,21 +2,12 @@ include device/qcom/msm7627a/BoardConfig.mk
 
 TARGET_NO_BOOTLOADER := true
 
+TARGET_CPU_SMP := true
+
 BOARD_EGL_CFG := device/qcom/msm7627a/egl.cfg
 
-#Optimizations
-COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60
-COMMON_GLOBAL_CFLAGS += -DMISSING_GRALLOC_BUFFERS
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_HAVE_TSLIB := true
-ARCH_ARM_HAVE_NEON := true
-TARGET_USES_OVERLAY := false
-TARGET_HAVE_BYPASS  := false
-TARGET_USES_C2D_COMPOSITION := false
-TARGET_QCOM_HDMI_OUT := false
-BOARD_USE_SKIA_LCDTEXT := true
-USE_OPENGL_RENDERER := true
+# Enable WebGL
+ENABLE_WEBGL := true
 
 # Camera
 USE_CAMERA_STUB:=false
@@ -42,7 +33,7 @@ SYSTEM_LOCATION           := /dev/block/mmcblk0p12
 
 # Misc
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 471859200
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 2046541824
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 1073741824
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # hack to prevent llvm from building
